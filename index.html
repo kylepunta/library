@@ -4,8 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <h1 class="main-heading">Library</h1>
+    <div class="main-body">
+        <div class="sidebar">
+            <button class="open-dialog">New Book</button>
+            <div class="total-books">
+                <h3>Total Books: </h3>
+                <p class="book-numbers"></p>
+            </div>
+            <dialog class="form-dialog">
+                <form action="" method="dialog">
+                    <h2>Add Book</h2>
+                    <label for="title" class="title-label">Title</label>
+                    <input type="text" id="title" name="title">
+
+                    <label for="author" class="author-label">Author</label>
+                    <input type="text" id="author" name="author">
+
+                    <label for="pages" class="pages-label">Pages</label>
+                    <input type="text" id="pages" name="pages">
+
+                    <button type="submit" class="submit">Add Book</button>
+                    <button class="close-dialog" type="button">Cancel</button>
+                </form>
+            </dialog>
+        </div>
+        <div class="book-list"></div>
+    </div>
     <script src="./library.js"></script>
 </body>
 </html>
