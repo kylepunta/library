@@ -5,13 +5,13 @@ body {
 .book-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
-    grid-template-rows: repeat(auto-fit, minmax(200px, 430px));
+    grid-template-rows: repeat(auto-fit, minmax(200px, 470px));
     gap: 10px;
 }
 
 .book-card {
     display: grid;
-    grid-template-rows: repeat(4, 100px);
+    grid-template-rows: repeat(5, 86px);
     border: 2px solid #cacaca;
     /* width: 400px; */
     padding-left: 20px;
@@ -67,6 +67,8 @@ p {
     margin-top: 10px;
     font-size: 24px;
     padding: 10px 24px;
+    border: 1px solid #cacaca;
+    border-radius: 10px;
 }
 
 .total-books {
@@ -144,4 +146,22 @@ input {
 .delete-button {
     font-size: 20px;
     padding: 12px 30px;
+    border: 1px solid #cacaca;
+    border-radius: 10px;
+}
+
+.book-card-read {
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    align-items: center;
+}
+
+.read-button {
+    height: 36px;
+    border: 1px solid #cacaca;
+    border-radius: 10px;
+}
+
+.is-read {
+    background-color: green;
 }
