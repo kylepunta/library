@@ -1,11 +1,45 @@
-const library = [];
+class Book {
+    constructor(title, author, pages, read){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+    
+    get bookTitle(){
+        return this.title;
+    }
 
-function Book (title, author, pages, read){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-};
+    get bookAuthor(){
+        return this.author;
+    }
+
+    get bookPages(){
+        return this.pages;
+    }
+
+    get bookRead(){
+        return this.read;
+    }
+
+    set bookTitle(title){
+        this.title = title;
+    }
+
+    set bookAuthor(author){
+        this.author = author;
+    }
+
+    set bookPages(pages){
+        this.pages = pages;
+    }
+
+    set bookRead(read){
+        this.read = read;
+    }
+}
+
+const library = [];
 
 function addBookToLibrary (book){
     library.push(book);
@@ -91,109 +125,8 @@ function displayBooks(){
     });
 };
 
-// function addNewBook (newBook) {
-//     let bookList = document.querySelector('.book-list');
-
-//     let bookCard = document.createElement('div');
-//     let bookCardTitle = document.createElement('div');
-//     let bookCardAuthor = document.createElement('div');
-//     let bookCardPages = document.createElement('div');
-//     let bookCardRead = document.createElement('div');
-
-//     bookCard.classList.add('book-card');
-//     bookCardTitle.classList.add('book-card-title');
-//     bookCardAuthor.classList.add('book-card-author');
-//     bookCardPages.classList.add('book-card-pages');
-//     bookCardRead.classList.add('book-card-read');
-    
-//     bookList.appendChild(bookCard);
-//     bookCard.appendChild(bookCardTitle);
-//     bookCard.appendChild(bookCardAuthor);
-//     bookCard.appendChild(bookCardPages);
-//     bookCard.appendChild(bookCardRead);
-
-//     let titleHeading = document.createElement('h3');
-//     let authorHeading = document.createElement('h3');
-//     let pagesHeading = document.createElement('h3');
-//     let readHeading = document.createElement('h3');
-
-//     let bookTitle = document.createElement('p');
-//     let bookAuthor = document.createElement('p');
-//     let bookPages = document.createElement('p');
-//     let readBtn = document.createElement('button');
-
-//     readBtn.classList.add('read-button');
-
-//     titleHeading.textContent = "Title: ";
-//     authorHeading.textContent = "Author: ";
-//     pagesHeading.textContent = "Pages: ";
-//     readHeading.textContent = "Read: ";
-
-//     bookTitle.textContent = newBook.title;
-//     bookAuthor.textContent = newBook.author;
-//     bookPages.textContent = newBook.pages;
-
-//     bookCardTitle.appendChild(titleHeading);
-//     bookCardTitle.appendChild(bookTitle);
-//     bookCardAuthor.appendChild(authorHeading);
-//     bookCardAuthor.appendChild(bookAuthor);
-//     bookCardPages.appendChild(pagesHeading);
-//     bookCardPages.appendChild(bookPages);
-//     bookCardRead.appendChild(readHeading);
-//     bookCardRead.appendChild(readBtn);
-
-//     let bookCardDelete = document.createElement('div');
-//     bookCardDelete.classList.add('book-card-delete');
-//     bookCard.appendChild(bookCardDelete);
-
-//     let deleteBookBtn = document.createElement('button');
-//     deleteBookBtn.classList.add('delete-button');
-//     deleteBookBtn.textContent = "Delete Book";
-//     bookCardDelete.appendChild(deleteBookBtn);
-
-//     // Find the index for the book
-
-//     let bookIndex = 0;
-
-//     for (let i = 0; i < library.length; i++){
-//         let currentBook = library[i];
-//         if (currentBook === newBook){
-//             bookIndex = i;
-//         }
-//     }
-
-//     bookCard.setAttribute('data-index', bookIndex);
-//     bookCard.setAttribute('data-title', newBook.title);
-
-//     deleteBookBtn.addEventListener('click', () => {
-//         deleteBook(bookCard.getAttribute('data-index'));
-//     })
-
-//     readBtn.addEventListener('click', () => {
-//         newBook.toggleReadStatus();
-//         if (newBook.read === true){
-//             readBtn.classList.add('is-read');
-//         }
-//         else {
-//             readBtn.classList.remove('is-read');
-//         }
-//     })
-// };
-
-// function showBooks() {
-//     for (let i = 0; i < library.length; i++){
-//         addNewBook(library[i]);
-//     }
-// };
-
 function deleteBook (bookIndex) {
     library.splice(bookIndex, 1);
-    // let bookToDelete = document.querySelector(`[data-index="${bookIndex}"]`);
-    // bookToDelete.remove();
-    // let books = document.querySelectorAll('.book-card');
-    // books.forEach((book, index) => {
-    //     book.setAttribute('data-index', index);
-    // });
     displayBooks();
     totalBooks.textContent = library.length;
 };
@@ -235,7 +168,6 @@ submitBtn.addEventListener('click', () => {
     let newPages = document.querySelector('#pages').value;
     let newBook = new Book(newTitle, newAuthor, newPages, false);
     addBookToLibrary(newBook);
-    // addNewBook(newBook);
     displayBooks();
     totalBooks.textContent = library.length;
 });
